@@ -29,5 +29,8 @@ namespace DemoUpSchoolProject.Models.Entities
         public virtual DbSet<TblAdmin> TblAdmin { get; set; }
         public virtual DbSet<TblServices> TblServices { get; set; }
         public virtual DbSet<TblServicesFeature> TblServicesFeature { get; set; }
+        public virtual DbSet<TblTestimonial> TblTestimonial { get; set; }
+        public virtual DbSet<TblMember> TblMember { get; set; }
+        public virtual DbSet<TblMessage> TblMessage { get; set; }
     }
 }

@@ -5,58 +5,62 @@ using System.Web;
 using System.Web.Mvc;
 using DemoUpSchoolProject.Models.Entities;
 
-
 namespace DemoUpSchoolProject.Controllers
 {
-    public class ServicesController : Controller
+    public class AboutController : Controller
     {
-        // GET: Servises
-        /*
-         ToList
-         Add
-         Remove
-         Where
-        */
-         
+        // GET: About
         UpSchoolDbPortfolioEntities db = new UpSchoolDbPortfolioEntities();
+        [Authorize]
         public ActionResult Index()
         {
-            var values = db.TblServices.ToList();
+            var values = db.TblAbout2.ToList();
             return View(values);
         }
+
         [HttpGet]
-        public ActionResult AddService()
+        public ActionResult AddAbout()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult AddService(TblServices p)
-        {
-            db.TblServices.Add(p);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public ActionResult DeleteService(int id)
-        {
-            var values=db.TblServices.Find(id);
-            db.TblServices.Remove(values);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        [HttpGet]
-        public ActionResult UpdateService(int id)
-        {
-            var values = db.TblServices.Find(id);
-            return View(values);
-        }
 
         [HttpPost]
-        public ActionResult UpdateService(TblServices p)
+
+        public ActionResult AddAbout(TblAbout2 p)
         {
-            var values = db.TblServices.Find(p.ServicesID);
-            values.Title = p.Title;
+            db.TblAbout2.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteAbout(int id)
+        {
+            var values = db.TblAbout2.Find(id);
+            db.TblAbout2.Remove(values);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateAbout(int id)
+        {
+            //ViewBag.aboutId = id;
+            var values = db.TblAbout2.Find(id);
+            return View(values);
+        }
+        [HttpPost]
+
+        public ActionResult UpdateAbout(TblAbout2 p)
+        {
+
+            var values = db.TblAbout2.Find(p.AboutID);
+            values.Description = p.Description;
+            values.ImageUrl = p.ImageUrl;
+            values.Title = p.Title;
+            values.NameSurname = p.NameSurname;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
     }
 }

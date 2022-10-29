@@ -8,9 +8,10 @@
 
 <table class="table table-bordered">
     <tr>
-        <th>#</th>
+        <th>Sıra No</th>
         <th>Hizmet Adı</th>
         <th>Sil</th>
+
         <th>Güncelle</th>
     </tr>
     @foreach (var item in Model)
@@ -20,10 +21,10 @@
             <td>@sayac</td>
             <td>@item.Title</td>
             <td><a href="/Services/DeleteService/@item.ServicesID" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Services/UpdateService/@item.ServicesID" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 </table>
 
-<a href="/Services/AddServices/" class="btn btn-primary">Yeni Hizmet Girişi</a>
+<a href="/Services/AddService/" class="btn btn-primary">Yeni Hizmet Girişi</a>
 
