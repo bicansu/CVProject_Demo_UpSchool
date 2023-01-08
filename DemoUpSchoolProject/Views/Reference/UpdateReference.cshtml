@@ -1,0 +1,27 @@
+﻿@model DemoUpSchoolProject.Models.Entities.TblReference
+
+@{
+    ViewBag.Title = "UpdateReference";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.ReferenceID, new { @class = "form-control" })
+    <br />
+    <label>Referans Adı</label>
+    @Html.TextBoxFor(x => x.ReferenceName, new { @class = "form-control" })
+    <br />
+    <label>Referans Mail</label>
+    @Html.TextBoxFor(x => x.ReferenceMail, new { @class = "form-control" })
+    <br />
+    <label>Referans Telefon</label>
+    @Html.TextBoxFor(x => x.ReferencePhone, new { @class = "form-control" })
+    <br />
+    <label>Referans Şirket</label>
+    @Html.TextBoxFor(x => x.ReferenceCompany, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+</form>

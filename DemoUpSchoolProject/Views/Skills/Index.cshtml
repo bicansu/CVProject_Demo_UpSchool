@@ -1,0 +1,32 @@
+﻿@using DemoUpSchoolProject.Models.Entities
+@model List<TblSkills>
+    @{
+    ViewBag.Title = "Yetenek Listesi";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Yetenek Adı</th>
+        <th>Yetenek Seviyesi</th>
+        <th>Sil</th> 
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        
+        <tr>
+            <td>@item.SkillID</td>
+            <td>@item.SkillName</td>
+            <td>% @item.SkillLevel </td>
+            <td><a href="/Skills/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Skills/UpdateSkill/@item.SkillID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Skills/AddSkill/" class="btn btn-primary">Yeni Yetenek Girişi</a>
+
+
+

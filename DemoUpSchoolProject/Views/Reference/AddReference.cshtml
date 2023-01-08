@@ -1,0 +1,24 @@
+﻿@model  DemoUpSchoolProject.Models.Entities.TblReference
+@{
+    ViewBag.Title = "AddReference";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<h2>Yeni Referans Ekleme Sayfası</h2>
+
+<form method="post">
+    <label>Ad Soyad</label>
+    @Html.TextAreaFor(x => x.ReferenceName, new { @class = "form-control" })
+    <br />
+    <label>Mail</label>
+    @Html.TextAreaFor(x => x.ReferenceMail, new { @class = "form-control" })
+    <br />
+    <label>Telefon</label>
+    @Html.TextAreaFor(x => x.ReferencePhone, new { @class = "form-control" })
+    <br />
+    <label>Şirket</label>
+    @Html.TextAreaFor(x => x.ReferenceCompany, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>

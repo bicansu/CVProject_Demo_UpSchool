@@ -10,6 +10,8 @@
         <th>#</th>
         <th>Ad Soyad</th>
         <th>Başlık</th>
+        <th>Resim</th>
+        <th>Resim2</th>
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
@@ -19,6 +21,8 @@
                     <td>@item.AboutID</td>
                     <td>@item.NameSurname</td>
                     <td>@item.Title</td>
+                    <td><img src="@item.ImageUrl" style="height:50px; width:50px;"</td>
+                    <td><img src="@item.ImageUrl2" style="height:50px; width:50px;"</td>
                     <td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-danger">Sil</a></td>
                     <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-success">Güncelle</a></td>
                 </tr>

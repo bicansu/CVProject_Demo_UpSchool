@@ -14,6 +14,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImageUrl2" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TblAdmin">
           <Key>
@@ -24,6 +25,26 @@
           <Property Name="Password" Type="nvarchar" MaxLength="20" />
           <Property Name="Status" Type="bit" />
         </EntityType>
+        <EntityType Name="TblCrt">
+          <Key>
+            <PropertyRef Name="CrtID" />
+          </Key>
+          <Property Name="CrtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CrtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrtDescription" Type="text" />
+          <Property Name="CrtDate" Type="date" />
+          <Property Name="Image" Type="text" />
+        </EntityType>
+        <EntityType Name="TblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="JobDescription" Type="text" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="LeaveDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="TblMember">
           <Key>
             <PropertyRef Name="MemberID" />
@@ -33,6 +54,9 @@
           <Property Name="MemberSurname" Type="nvarchar" MaxLength="30" />
           <Property Name="MemberEmail" Type="nvarchar" MaxLength="30" />
           <Property Name="MemberPassword" Type="nvarchar" MaxLength="30" />
+          <Property Name="MemberPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberAddress" Type="text" />
+          <Property Name="MemberDescription" Type="text" />
         </EntityType>
         <EntityType Name="TblMessage">
           <Key>
@@ -47,12 +71,24 @@
           <Property Name="MessageSubject" Type="nvarchar" MaxLength="30" />
           <Property Name="MessageContent" Type="nvarchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="TblReference">
+          <Key>
+            <PropertyRef Name="ReferenceID" />
+          </Key>
+          <Property Name="ReferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferenceName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReferenceMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReferencePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReferenceCompany" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageUrl3" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="TblServices">
           <Key>
             <PropertyRef Name="ServicesID" />
           </Key>
           <Property Name="ServicesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="text" />
+          <Property Name="ImageUrlService" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TblServicesFeature">
           <Key>
@@ -62,6 +98,14 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TblSkills">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SkillLevel" Type="int" />
         </EntityType>
         <EntityType Name="TblTestimonial">
           <Key>
@@ -76,10 +120,14 @@
         <EntityContainer Name="UpSchoolDbPortfoioModelStoreContainer">
           <EntitySet Name="TblAbout2" EntityType="Self.TblAbout2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCrt" EntityType="Self.TblCrt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblExperience" EntityType="Self.TblExperience" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMember" EntityType="Self.TblMember" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblMessage" EntityType="Self.TblMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblReference" EntityType="Self.TblReference" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblServices" EntityType="Self.TblServices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblServicesFeature" EntityType="Self.TblServicesFeature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSkills" EntityType="Self.TblSkills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblTestimonial" EntityType="Self.TblTestimonial" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -94,6 +142,10 @@
           <EntitySet Name="TblTestimonial" EntityType="UpSchoolDbPortfoioModel.TblTestimonial" />
           <EntitySet Name="TblMember" EntityType="UpSchoolDbPortfoioModel.TblMember" />
           <EntitySet Name="TblMessage" EntityType="UpSchoolDbPortfoioModel.TblMessage" />
+          <EntitySet Name="TblReference" EntityType="UpSchoolDbPortfoioModel.TblReference" />
+          <EntitySet Name="TblExperience" EntityType="UpSchoolDbPortfoioModel.TblExperience" />
+          <EntitySet Name="TblSkills" EntityType="UpSchoolDbPortfoioModel.TblSkills" />
+          <EntitySet Name="TblCrt" EntityType="UpSchoolDbPortfoioModel.TblCrt" />
         </EntityContainer>
         <EntityType Name="TblAbout2">
           <Key>
@@ -104,6 +156,7 @@
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TblAdmin">
           <Key>
@@ -119,7 +172,8 @@
             <PropertyRef Name="ServicesID" />
           </Key>
           <Property Name="ServicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrlService" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TblServicesFeature">
           <Key>
@@ -149,6 +203,9 @@
           <Property Name="MemberSurname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MemberEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MemberPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MemberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemberDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TblMessage">
           <Key>
@@ -163,6 +220,45 @@
           <Property Name="MessageContent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="SenderNameSurname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="TblReference">
+          <Key>
+            <PropertyRef Name="ReferenceID" />
+          </Key>
+          <Property Name="ReferenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferenceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReferencePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceCompany" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblExperience">
+          <Key>
+            <PropertyRef Name="ExperienceID" />
+          </Key>
+          <Property Name="ExperienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="LeaveDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TblSkills">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SkillLevel" Type="Int32" />
+          <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="TblCrt">
+          <Key>
+            <PropertyRef Name="CrtID" />
+          </Key>
+          <Property Name="CrtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CrtDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CrtDate" Type="DateTime" Precision="0" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -172,6 +268,7 @@
           <EntitySetMapping Name="TblAbout2">
             <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblAbout2">
               <MappingFragment StoreEntitySet="TblAbout2">
+                <ScalarProperty Name="ImageUrl2" ColumnName="ImageUrl2" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -193,7 +290,8 @@
           <EntitySetMapping Name="TblServices">
             <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblServices">
               <MappingFragment StoreEntitySet="TblServices">
-                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrlService" ColumnName="ImageUrlService" />
                 <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -222,6 +320,9 @@
           <EntitySetMapping Name="TblMember">
             <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblMember">
               <MappingFragment StoreEntitySet="TblMember">
+                <ScalarProperty Name="MemberDescription" ColumnName="MemberDescription" />
+                <ScalarProperty Name="MemberAddress" ColumnName="MemberAddress" />
+                <ScalarProperty Name="MemberPhone" ColumnName="MemberPhone" />
                 <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
                 <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
                 <ScalarProperty Name="MemberSurname" ColumnName="MemberSurname" />
@@ -241,6 +342,49 @@
                 <ScalarProperty Name="ReceiverMail" ColumnName="ReceiverMail" />
                 <ScalarProperty Name="SenderMail" ColumnName="SenderMail" />
                 <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblReference">
+            <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblReference">
+              <MappingFragment StoreEntitySet="TblReference">
+                <ScalarProperty Name="ImageUrl3" ColumnName="ImageUrl3" />
+                <ScalarProperty Name="ReferenceCompany" ColumnName="ReferenceCompany" />
+                <ScalarProperty Name="ReferencePhone" ColumnName="ReferencePhone" />
+                <ScalarProperty Name="ReferenceMail" ColumnName="ReferenceMail" />
+                <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblExperience">
+            <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblExperience">
+              <MappingFragment StoreEntitySet="TblExperience">
+                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSkills">
+            <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblSkills">
+              <MappingFragment StoreEntitySet="TblSkills">
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="SkillLevel" ColumnName="SkillLevel" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCrt">
+            <EntityTypeMapping TypeName="UpSchoolDbPortfoioModel.TblCrt">
+              <MappingFragment StoreEntitySet="TblCrt">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="CrtDate" ColumnName="CrtDate" />
+                <ScalarProperty Name="CrtDescription" ColumnName="CrtDescription" />
+                <ScalarProperty Name="CrtName" ColumnName="CrtName" />
+                <ScalarProperty Name="CrtID" ColumnName="CrtID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

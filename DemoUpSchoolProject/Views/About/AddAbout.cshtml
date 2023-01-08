@@ -3,7 +3,8 @@
     ViewBag.Title = "AddAbout";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
-<form method="post">
+<form method="post" enctype="multipart/form-data">
+    @*fotoğraf eklemek istediğinde enctype eklenmelidir.*@
     <label>Ad Soyad</label>
     @Html.TextAreaFor(x => x.NameSurname, new { @class = "form-control" })
     <br />
@@ -14,7 +15,10 @@
     @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
     <br />
     <label>Image Url</label>
-    @Html.TextAreaFor(x => x.ImageUrl, new { @class = "form-control" })
+    <input type="file" name="ImageUrl"  class="form-control" />
+    <br />
+    <label>Image Url2</label>
+    <input type="file" name="ImageUrl2"  class="form-control" />
     <br />
     <button class="btn btn-primary">Kaydet</button>
 

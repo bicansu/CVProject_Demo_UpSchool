@@ -1,0 +1,25 @@
+﻿@model DemoUpSchoolProject.Models.Entities.TblCrt
+
+@{
+    ViewBag.Title = "Sertifika Güncelle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<form method="post">
+    @Html.HiddenFor(x => x.CrtID, new { @class = "form-control" })
+    <br />
+    <label>Sertifika Adı</label>
+    @Html.TextBoxFor(x => x.CrtName, new { @class = "form-control" })
+    <br />
+    <label>Sertifika Açıklaması</label>
+    @Html.TextBoxFor(x => x.CrtDescription, new { @class = "form-control" })
+    <br />
+    <label>Sertifika Tarihi</label>
+    @Html.TextBoxFor(x => x.CrtDate, new { @class = "form-control" })
+    <br />s
+    <label>Image Url</label>
+    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+</form>

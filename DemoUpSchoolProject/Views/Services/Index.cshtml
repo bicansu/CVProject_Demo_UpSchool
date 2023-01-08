@@ -10,6 +10,7 @@
     <tr>
         <th>Sıra No</th>
         <th>Hizmet Adı</th>
+        <th>Resim</th>
         <th>Sil</th>
 
         <th>Güncelle</th>
@@ -20,6 +21,7 @@
         <tr>
             <td>@sayac</td>
             <td>@item.Title</td>
+            <td><img src="@item.ImageUrlService" style="height:50px; width:50px;"</td>
             <td><a href="/Services/DeleteService/@item.ServicesID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Services/UpdateService/@item.ServicesID" class="btn btn-success">Güncelle</a></td>
         </tr>

@@ -32,5 +32,9 @@ namespace DemoUpSchoolProject.Models.Entities
         public virtual DbSet<TblTestimonial> TblTestimonial { get; set; }
         public virtual DbSet<TblMember> TblMember { get; set; }
         public virtual DbSet<TblMessage> TblMessage { get; set; }
+        public virtual DbSet<TblReference> TblReference { get; set; }
+        public virtual DbSet<TblExperience> TblExperience { get; set; }
+        public virtual DbSet<TblSkills> TblSkills { get; set; }
+        public virtual DbSet<TblCrt> TblCrt { get; set; }
     }
 }

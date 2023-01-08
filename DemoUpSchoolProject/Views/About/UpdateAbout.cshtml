@@ -5,8 +5,8 @@
         Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
     }
 
-<form method="post" @*action="/About/UpdateAbout/@ViewBag.aboutId/"*@>
-    @Html.HiddenFor(x=>x.AboutID)
+<form method="post" @*action="/About/UpdateAbout/@ViewBag.aboutId/"*@ enctype="multipart/form-data">
+    @Html.HiddenFor(x => x.AboutID)
     <label>Ad Soyad</label>
     @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
     <br />  <label>Başlık</label>
@@ -16,9 +16,12 @@
     @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
     <br />
     <label>Image Url</label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <input type="file" class="form-control" name="ImageUrl"/>
     <br />
-  
+    <label>Image Url2</label>
+    <input type="file" class="form-control" name="ImageUrl2" />
+    <br />
+
     <button type="submit" class="btn btn-warning">Güncelle</button>
 
 </form>

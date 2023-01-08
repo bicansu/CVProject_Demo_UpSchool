@@ -7,6 +7,7 @@ using DemoUpSchoolProject.Models.Entities;
 
 namespace DemoUpSchoolProject.Controllers
 {
+    [Authorize]
     public class MessageController : Controller
     {
         UpSchoolDbPortfolioEntities db = new UpSchoolDbPortfolioEntities();
@@ -39,9 +40,22 @@ namespace DemoUpSchoolProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Outbox");
         }
-        public ActionResult MessageDetails()
+      
+        public ActionResult MessageDetails(int id)
         {
+
+            var mesajDetay = db.TblMessage.Where(x => x.MessageID == id).FirstOrDefault();
+            db.SaveChanges();
+            ViewBag.mesaj = mesajDetay;
+           
             return View();
+        }
+        public ActionResult DeleteMessage(int id)
+        {
+            var values = db.TblMessage.Find(id);
+            db.TblMessage.Remove(values);
+            db.SaveChanges();
+            return RedirectToAction("Inbox");
         }
 
 

@@ -1,0 +1,35 @@
+﻿@using DemoUpSchoolProject.Models.Entities
+@model List<TblReference>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Ad Soyad</th>
+        <th>Mail</th>
+        <th>Telefon</th>
+        <th>Şirket</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ReferenceID</td>
+            <td>@item.ReferenceName</td>
+            <td>@item.ReferenceMail</td>
+            <td>@item.ReferencePhone</td>
+            <td>@item.ReferenceCompany</td>
+            <td><a href="/Reference/DeleteReference/@item.ReferenceID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Reference/UpdateReference/@item.ReferenceID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+
+</table>
+<a href="/Reference/AddReference/" class="btn btn-primary">Yeni Reference Ekle</a>
+

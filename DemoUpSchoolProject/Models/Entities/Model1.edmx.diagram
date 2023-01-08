@@ -12,6 +12,10 @@
         <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblTestimonial" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblMember" Width="1.5" PointX="5.375" PointY="3.75" />
         <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblMessage" Width="3.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblReference" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblExperience" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblSkills" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="UpSchoolDbPortfoioModel.TblCrt" Width="1.5" PointX="7.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

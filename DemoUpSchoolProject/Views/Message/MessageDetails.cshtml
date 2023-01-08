@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "MesseageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class=" card" style="border:none;font-weight:bold">
+    <a href=#>
+        <i class="fa fa-info"></i>
+        &nbsp; Mesaj İçeriği
+    </a>
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="card">
+        <label><a href=#>&nbsp;Gönderen: </a>@ViewBag.mesaj.SenderNameSurname</label>
+        <textarea rows="2" cols="5" disabled="disabled" class="form-control">@ViewBag.mesaj.MessageContent</textarea>
+    </div>
+    <br />
+
+    <a class="btn btn-primary" href="/Message/Inbox">Mesajlara Dön</a>
+</div> 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,8 +24,16 @@ namespace DemoUpSchoolProject.Controllers
             ViewBag.v4 = db.TblTestimonial.Where(x => x.City == "Trabzon").Select(y => y.NameSurname).FirstOrDefault();
             //Referansların ortalama maaşı:
             ViewBag.V5 = db.TblTestimonial.Average(x => x.Balance);
-
-            return View();
+            var values = db.TblTestimonial.ToList();
+            return View(values);
+        }
+        public JsonResult getJson()
+        {
+            
+            return this.Json(
+                (from obj in db.TblTestimonial where obj.Profession == "Yazılım Mühendisi" select new {counter=obj.Profession, litres=obj.Balance}), 
+                JsonRequestBehavior.AllowGet
+                );
         }
     }
 }

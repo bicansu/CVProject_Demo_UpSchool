@@ -1,0 +1,33 @@
+﻿@using DemoUpSchoolProject.Models.Entities
+@model List<TblCrt>
+@{
+    ViewBag.Title = "Sertifika Listesi";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Sertifika Adı</th>
+        <th>Sertifika Açıklaması</th>
+        <th>Sertifika Tarihi</th>
+        <th>Sertifika Fotoğrafı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.CrtID</td>
+            <td>@item.CrtName</td>
+            <td> @item.CrtDescription </td>
+            <td> @item.CrtDate</td>
+            <td><img src="~/Templates/@item.Image" style="width:50px;height:50px;"/></td>
+            <td><a href="/Crt/DeleteCrt/@item.CrtID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Crt/UpdateCrt/@item.CrtID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Crt/AddCrt/" class="btn btn-primary">Yeni Sertifika Girişi</a>

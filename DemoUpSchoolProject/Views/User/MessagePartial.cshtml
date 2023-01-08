@@ -1,0 +1,47 @@
+﻿@model DemoUpSchoolProject.Models.Entities.TblMessage
+ 
+<section class="w3l-contactblock" id="Contact">
+    <div class="midd-w3 py-5">
+        <div class="container py-lg-4 py-md-3">
+            <div class="contact-heading text-center">
+                <span class="text">Bana Ulaşın </span>
+                <h3 class="title-big">Mail gönderebilirsiniz.</h3>
+              
+            </div>
+            <div class="row mt-md-5 mt-4 pt-lg-3">
+                <div class="col-lg-5">
+                    <p>
+                        @ViewBag.Aciklama
+                    </p>
+                    <ul class="address mt-md-5 mt-4">
+                        <li class="mb-3">
+                            <p><span class="fa fa-phone"></span> <a href="tel:@ViewBag.Tel">@ViewBag.Tel</a></p>
+                        </li>
+                        <li class="mb-4">
+                            <p><span class="fa fa-envelope-open"></span> <a href="mailto:@ViewBag.Email">@ViewBag.Email</a></p>
+                        </li>
+                        <li class="">
+                            <p><span class="fa fa-map-marker"></span>@ViewBag.Adres</p>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-lg-7 mt-lg-0 mt-md-5 mt-4">
+                    <form method="post" action="/User/SendMessage">
+                        <div class="twice-two">
+                            <input type="text" class="form-control" name="SenderNameSurname" id="w3lName" placeholder="Adınız" required="">
+                            <input type="email" class="form-control" name="SenderMail" id="w3lSender" placeholder="Email Adresiniz" required="">
+                        </div>
+                        <div class="twice">
+                            <input type="text" class="form-control" name="MessageSubject" id="w3lSubject" placeholder="Konu" required="">
+                        </div>
+                        <textarea name="MessageContent" class="form-control" id="w3lMessage" placeholder="Mesajınızı yazınız."  required=""></textarea>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-secondary btn-style mt-4">Mesaj Gönder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

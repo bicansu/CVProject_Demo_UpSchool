@@ -19,5 +19,8 @@ namespace DemoUpSchoolProject.Models.Entities
         public string MemberSurname { get; set; }
         public string MemberEmail { get; set; }
         public string MemberPassword { get; set; }
+        public string MemberPhone { get; set; }
+        public string MemberAddress { get; set; }
+        public string MemberDescription { get; set; }
     }
 }

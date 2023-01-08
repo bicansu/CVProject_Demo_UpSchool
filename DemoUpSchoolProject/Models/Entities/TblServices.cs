@@ -15,6 +15,7 @@ namespace DemoUpSchoolProject.Models.Entities
     public partial class TblServices
     {
         public int ServicesID { get; set; }
-        public string Title { get; set; }
+        public string ImageUrlService { get; set; }
+        public string Description { get; set; }
     }
 }

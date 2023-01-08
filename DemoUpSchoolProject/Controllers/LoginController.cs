@@ -7,7 +7,8 @@ using System.Web.Security;
 using DemoUpSchoolProject.Models.Entities;
 
 namespace DemoUpSchoolProject.Controllers
-{
+{ 
+  
     public class LoginController : Controller
     {
         UpSchoolDbPortfolioEntities db = new UpSchoolDbPortfolioEntities();
@@ -33,6 +34,12 @@ namespace DemoUpSchoolProject.Controllers
                 return RedirectToAction("Index");
             }
            
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Remove("MemberEmail");
+            return RedirectToAction("Index");
         }
     }
 }

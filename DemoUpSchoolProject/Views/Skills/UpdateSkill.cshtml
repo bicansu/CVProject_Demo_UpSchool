@@ -1,0 +1,19 @@
+﻿@model DemoUpSchoolProject.Models.Entities.TblSkills
+
+@{
+    ViewBag.Title = "UpdateSkill";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<form method="post">
+    @Html.HiddenFor(x => x.SkillID, new { @class = "form-control" })
+    <br />
+    <label>Yetenek Adı</label>
+    @Html.TextBoxFor(x => x.SkillName, new { @class = "form-control" })
+    <br />
+    <label>Yetenek Seviyesi</label> 
+    @Html.TextBoxFor(x => x.SkillLevel, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+</form>

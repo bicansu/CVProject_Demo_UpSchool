@@ -7,6 +7,7 @@ using DemoUpSchoolProject.Models.Entities;
 
 namespace DemoUpSchoolProject.Controllers
 {
+    [Authorize]
     public class MemberController : Controller
     {
         UpSchoolDbPortfolioEntities db = new UpSchoolDbPortfolioEntities();

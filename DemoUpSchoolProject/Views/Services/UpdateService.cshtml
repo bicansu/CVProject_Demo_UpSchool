@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<form mothod="post">
+<form method="post">
     @Html.HiddenFor(x => x.ServicesID, new { @class = "form-control" })
     <br />
     <label>Hizmet Başlığı</label>
     @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Image Url</label>
+    <input type="file" class="form-control" />
     <br />
     <button class="btn btn-success">Güncelle</button>
 
